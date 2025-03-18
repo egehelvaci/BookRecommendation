@@ -1,0 +1,117 @@
+# Kitap Öneri Sistemi - Mac Kurulum Kılavuzu
+
+## Adım 1: Terminal'i Açma
+1. Spotlight Search'i açın (⌘ + Space)
+2. "Terminal" yazın ve Enter'a basın
+
+## Adım 2: Homebrew Kurulumu
+1. Aşağıdaki komutu Terminal'e yapıştırın ve Enter'a basın:
+   ```
+   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+   ```
+2. Kurulum sırasında şifrenizi girmeniz gerekebilir
+3. Kurulum tamamlanana kadar bekleyin
+
+## Adım 3: Python 3.8 Kurulumu
+1. Terminal'e şu komutu yazın:
+   ```
+   brew install python@3.8
+   ```
+2. Kurulum tamamlandıktan sonra PATH'e ekleyin:
+   ```
+   echo 'export PATH="/opt/homebrew/opt/python@3.8/bin:$PATH"' >> ~/.zshrc
+   source ~/.zshrc
+   ```
+
+## Adım 4: Proje Dosyalarını Hazırlama
+1. Gönderilen "KitapOneri.zip" dosyasını indirin
+2. Finder'da ZIP dosyasına çift tıklayarak açın
+3. Masaüstünde yeni bir klasör oluşturun:
+   - Masaüstüne tıklayın
+   - ⌘ + Shift + N tuşlarına basın
+   - Klasöre "KitapOneri" adını verin
+4. ZIP içindeki tüm dosyaları bu klasöre sürükleyin
+
+## Adım 5: Proje Klasörüne Gitme
+1. Terminal'de şu komutu yazın:
+   ```
+   cd ~/Desktop/KitapOneri
+   ```
+
+## Adım 6: Sanal Ortam Oluşturma
+1. Terminal'de şu komutu yazın:
+   ```
+   python3.8 -m venv venv
+   ```
+2. Sanal ortamı aktifleştirin:
+   ```
+   source venv/bin/activate
+   ```
+   Not: Terminal'de (venv) yazısını görmelisiniz
+
+## Adım 7: Kütüphaneleri Yükleme
+1. Pip'i güncelleyin:
+   ```
+   pip install --upgrade pip setuptools wheel
+   ```
+2. Gereksinimleri yükleyin:
+   ```
+   pip install -r requirements.txt
+   ```
+   Not: Bu işlem birkaç dakika sürebilir
+
+## Adım 8: Veritabanını Oluşturma
+1. Terminal'de şu komutu yazın:
+   ```
+   python3.8 scrape_books.py
+   ```
+
+## Adım 9: Programı Çalıştırma
+1. Terminal'de şu komutu yazın:
+   ```
+   python3.8 gui.py
+   ```
+
+## Sorun Giderme
+
+### Program Açılmazsa
+1. Tüm Terminal'leri kapatın
+2. Yeni Terminal açın
+3. Şu komutları sırayla yazın:
+   ```
+   cd ~/Desktop/KitapOneri
+   source venv/bin/activate
+   python3.8 gui.py
+   ```
+
+### Kütüphane Hatası Alırsanız
+1. Sanal ortamda olduğunuzdan emin olun:
+   ```
+   source venv/bin/activate
+   ```
+2. Kütüphaneleri tekrar yükleyin:
+   ```
+   pip install --upgrade pip setuptools wheel
+   pip install -r requirements.txt
+   ```
+
+### Diğer Hatalar İçin
+1. Python sürümünüzü kontrol edin:
+   ```
+   python3.8 --version
+   ```
+2. Tüm dosyaların klasörde olduğunu kontrol edin:
+   ```
+   ls
+   ```
+   Şu dosyaları görmelisiniz:
+   - book_recommender.py
+   - gui.py
+   - scrape_books.py
+   - books_database.json
+   - requirements.txt
+
+## Not
+- İlk çalıştırmada yapay zeka modelleri indirilecektir
+- İnternet bağlantınızın olması gerekir
+- İlk açılış yavaş olabilir

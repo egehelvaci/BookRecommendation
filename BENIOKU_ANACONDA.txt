@@ -1,0 +1,120 @@
+# Kitap Öneri Sistemi - Anaconda Kurulum Kılavuzu
+
+## Adım 1: Anaconda Kurulumu
+1. Anaconda'yı indirin:
+   - https://www.anaconda.com/download adresine gidin
+   - "Download" butonuna tıklayın
+   - İndirilen kurulum dosyasını çalıştırın
+
+2. Kurulum sırasında:
+   - "Install for: Just Me" seçeneğini seçin
+   - "Add Anaconda3 to my PATH environment variable" kutucuğunu işaretleyin
+   - "Register Anaconda3 as my default Python" kutucuğunu işaretleyin
+   - Kurulum tamamlanana kadar bekleyin
+
+## Adım 2: Proje Dosyalarını Hazırlama
+1. Gönderilen "KitapOneri.zip" dosyasını indirin
+2. ZIP dosyasına sağ tıklayın ve "Tümünü Çıkar" seçeneğini seçin
+3. Masaüstünde yeni bir klasör oluşturun:
+   - Masaüstüne sağ tıklayın
+   - Yeni > Klasör
+   - Klasöre "KitapOneri" adını verin
+4. ZIP içindeki tüm dosyaları bu klasöre kopyalayın
+
+## Adım 3: Anaconda Navigator'ı Açma
+1. Windows başlat menüsünde "Anaconda Navigator" yazın
+2. Anaconda Navigator'ı açın
+
+## Adım 4: Yeni Ortam Oluşturma
+1. Sol menüden "Environments" sekmesine tıklayın
+2. Alttaki "Create" butonuna tıklayın
+3. Ortam ayarları:
+   - Name: kitaponeri
+   - Python version: 3.8
+   - "Create" butonuna tıklayın
+
+## Adım 5: Anaconda Prompt'u Açma
+1. Windows başlat menüsünde "Anaconda Prompt" yazın
+2. "Anaconda Prompt (Anaconda3)" programını yönetici olarak çalıştırın
+3. Ortamı aktifleştirin:
+   ```
+   conda activate kitaponeri
+   ```
+4. Proje klasörüne gidin:
+   ```
+   cd C:\Users\%USERNAME%\Desktop\KitapOneri
+   ```
+
+## Adım 6: Kütüphaneleri Yükleme
+1. Pip'i güncelleyin:
+   ```
+   python -m pip install --upgrade pip setuptools wheel
+   ```
+2. Gereksinimleri yükleyin:
+   ```
+   pip install -r requirements.txt
+   ```
+   Not: Bu işlem birkaç dakika sürebilir
+
+## Adım 7: Veritabanını Oluşturma
+1. Anaconda Prompt'ta şu komutu yazın:
+   ```
+   python scrape_books.py
+   ```
+
+## Adım 8: Programı Çalıştırma
+1. Anaconda Prompt'ta şu komutu yazın:
+   ```
+   python gui.py
+   ```
+
+## Sorun Giderme
+
+### Program Açılmazsa
+1. Tüm Anaconda Prompt'ları kapatın
+2. Yeni Anaconda Prompt açın
+3. Şu komutları sırayla yazın:
+   ```
+   conda activate kitaponeri
+   cd C:\Users\%USERNAME%\Desktop\KitapOneri
+   python gui.py
+   ```
+
+### Kütüphane Hatası Alırsanız
+1. Doğru ortamda olduğunuzdan emin olun:
+   ```
+   conda activate kitaponeri
+   ```
+2. Conda'yı güncelleyin:
+   ```
+   conda update -n base -c defaults conda
+   ```
+3. Kütüphaneleri tekrar yükleyin:
+   ```
+   pip install -r requirements.txt
+   ```
+
+### Diğer Hatalar İçin
+1. Python sürümünüzü kontrol edin:
+   ```
+   python --version
+   ```
+   Python 3.8.x çıktısı almalısınız
+
+2. Tüm dosyaların klasörde olduğunu kontrol edin:
+   ```
+   dir
+   ```
+   Şu dosyaları görmelisiniz:
+   - book_recommender.py
+   - gui.py
+   - scrape_books.py
+   - books_database.json
+   - requirements.txt
+
+## Not
+- İlk çalıştırmada yapay zeka modelleri indirilecektir
+- İnternet bağlantınızın olması gerekir
+- İlk açılış yavaş olabilir
+- Windows Defender veya antivirüs programı uyarı verebilir, izin vermeniz gerekir
+- Anaconda Navigator'dan ortamınızı görsel olarak da yönetebilirsiniz 

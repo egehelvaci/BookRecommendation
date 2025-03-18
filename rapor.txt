@@ -1,0 +1,118 @@
+# Kitap Öneri Sistemi - Teknik Rapor
+
+## 1. Projenin Amacı
+Bu proje, kullanıcıların kitap yorumlarını analiz ederek kişiselleştirilmiş kitap önerileri sunan bir yapay zeka sistemidir. Sistem, doğal dil işleme ve makine öğrenmesi teknikleri kullanarak kullanıcının beğenilerini anlar ve benzer kitapları önerir.
+
+## 2. Kullanılan Teknolojiler
+
+### 2.1 Yapay Zeka ve Makine Öğrenmesi
+- **Transformers**: Doğal dil işleme için BERT tabanlı modeller
+- **PyTorch**: Derin öğrenme framework'ü
+- **Scikit-learn**: Benzerlik hesaplamaları için
+- **NumPy**: Matematiksel işlemler için
+
+### 2.2 Arayüz
+- **PyQt5**: Grafiksel kullanıcı arayüzü için
+- Modern ve kullanıcı dostu tasarım
+- Duyarlı ve etkileşimli bileşenler
+
+## 3. Sistem Mimarisi
+
+### 3.1 Veri Yapısı (books_database.json)
+- Kitap bilgileri JSON formatında
+- Her kitap için:
+  - Başlık
+  - Yazar
+  - Tür
+  - Açıklama
+  - Anahtar kelimeler
+
+### 3.2 Ana Bileşenler
+
+#### BookRecommender Sınıfı (book_recommender.py)
+- Duygu analizi (sentiment_analyzer)
+- Metin gömme (embedding_model)
+- Benzerlik hesaplamaları
+- Akıllı öneri algoritması
+
+#### Grafiksel Arayüz (gui.py)
+- Kitap arama
+- Yorum girişi
+- Öneri görüntüleme
+- Duygu analizi sonuçları
+
+## 4. Temel Özellikler
+
+### 4.1 Duygu Analizi
+- Türkçe dil desteği
+- Cümle bazlı analiz
+- Pozitif/negatif sınıflandırma
+- Emoji ve özel karakter desteği
+
+### 4.2 Akıllı Öneri Sistemi
+- İçerik tabanlı filtreleme
+- Tür uyumu
+- Anahtar kelime eşleştirme
+- Yazar çeşitliliği
+- Popülerlik faktörü
+
+### 4.3 Benzerlik Hesaplaması
+- Kosinüs benzerliği
+- Metin gömme vektörleri
+- Ağırlıklı skor sistemi
+
+## 5. Algoritma Detayları
+
+### 5.1 Öneri Skorlama
+- İçerik benzerliği (%35)
+- Tür uyumu (%25)
+- Anahtar kelimeler (%25)
+- Yazar çeşitliliği (%10)
+- Popülerlik (%5)
+
+### 5.2 Duygu Analizi İyileştirmeleri
+- Cümle bazlı analiz
+- Kelime ağırlıklandırma
+- Pozitif/negatif kelime sayımı
+- Özel ifade kontrolü
+
+## 6. Performans İyileştirmeleri
+
+### 6.1 Önbellekleme
+- Gömme vektörlerinin önbelleğe alınması
+- Hızlı kitap arama
+- Verimli benzerlik hesaplaması
+
+### 6.2 Çeşitlilik Sağlama
+- Rastgele seçim stratejileri
+- Tür ve yazar çeşitliliği
+- Farklı öneriler için ağırlıklı seçim
+
+## 7. Kullanılan Yapay Zeka Modelleri
+
+### 7.1 BERT Tabanlı Duygu Analizi
+- Model: savasy/bert-base-turkish-sentiment-cased
+- Türkçe dil desteği
+- Yüksek doğruluk oranı
+
+### 7.2 Çok Dilli Metin Gömme
+- Model: sentence-transformers/paraphrase-multilingual-mpnet-base-v2
+- Çok dilli destek
+- Yüksek kaliteli vektör temsilleri
+
+## 8. Gelecek Geliştirmeler
+
+### 8.1 Planlanan Özellikler
+- Kullanıcı profili oluşturma
+- Öğrenme geçmişi
+- Kategori bazlı filtreleme
+- Detaylı istatistikler
+
+### 8.2 İyileştirme Alanları
+- Daha hassas duygu analizi
+- Daha fazla kitap verisi
+- Performans optimizasyonu
+- Kullanıcı geri bildirimi sistemi
+
+## 9. Sonuç
+Bu proje, modern yapay zeka teknolojilerini kullanarak kişiselleştirilmiş kitap önerileri sunan kapsamlı bir sistemdir. Doğal dil işleme, makine öğrenmesi ve kullanıcı dostu arayüz tasarımı bir araya getirilerek etkili bir öneri sistemi oluşturulmuştur. 

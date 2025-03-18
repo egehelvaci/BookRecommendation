@@ -1,0 +1,122 @@
+# Kitap Öneri Sistemi - Windows Kurulum Kılavuzu
+
+## Adım 1: Python 3.8 Kurulumu
+1. Python 3.8'i indirin:
+   - https://www.python.org/downloads/release/python-388/ adresine gidin
+   - Sayfanın altındaki "Windows installer (64-bit)" linkine tıklayın
+   - İndirilen dosyayı çalıştırın
+
+2. Kurulum sırasında:
+   - "Add Python 3.8 to PATH" kutucuğunu işaretleyin
+   - "Install Now" butonuna tıklayın
+   - Kurulum tamamlanana kadar bekleyin
+
+## Adım 2: Proje Dosyalarını Hazırlama
+1. Gönderilen "KitapOneri.zip" dosyasını indirin
+2. ZIP dosyasına sağ tıklayın ve "Tümünü Çıkar" seçeneğini seçin
+3. Masaüstünde yeni bir klasör oluşturun:
+   - Masaüstüne sağ tıklayın
+   - Yeni > Klasör
+   - Klasöre "KitapOneri" adını verin
+4. ZIP içindeki tüm dosyaları bu klasöre kopyalayın
+
+## Adım 3: Komut İstemi'ni Açma
+1. Windows tuşu + R tuşlarına basın
+2. "cmd" yazıp Enter'a basın
+3. Proje klasörüne gidin:
+   ```
+   cd C:\Users\%USERNAME%\Desktop\KitapOneri
+   ```
+
+## Adım 4: Sanal Ortam Oluşturma
+1. Komut İstemi'nde şu komutu yazın:
+   ```
+   python -m venv venv
+   ```
+2. Sanal ortamı aktifleştirin:
+   ```
+   venv\Scripts\activate
+   ```
+   Not: Komut İstemi'nde (venv) yazısını görmelisiniz
+
+## Adım 5: Kütüphaneleri Yükleme
+1. Pip'i güncelleyin:
+   ```
+   python -m pip install --upgrade pip setuptools wheel
+   ```
+2. Gereksinimleri yükleyin:
+   ```
+   pip install -r requirements.txt
+   ```
+   Not: Bu işlem birkaç dakika sürebilir
+
+## Adım 6: Veritabanını Oluşturma
+1. Komut İstemi'nde şu komutu yazın:
+   ```
+   python scrape_books.py
+   ```
+
+## Adım 7: Programı Çalıştırma
+1. Komut İstemi'nde şu komutu yazın:
+   ```
+   python gui.py
+   ```
+
+## Sorun Giderme
+
+### Program Açılmazsa
+1. Tüm Komut İstemlerini kapatın
+2. Yeni Komut İstemi açın (Windows + R > cmd)
+3. Şu komutları sırayla yazın:
+   ```
+   cd C:\Users\%USERNAME%\Desktop\KitapOneri
+   venv\Scripts\activate
+   python gui.py
+   ```
+
+### "Python Tanınmıyor" Hatası
+1. Python'u kaldırın
+2. Python 3.8'i tekrar yükleyin
+3. Kurulum sırasında "Add Python 3.8 to PATH" seçeneğini işaretlediğinizden emin olun
+4. Bilgisayarınızı yeniden başlatın
+
+### Kütüphane Hatası Alırsanız
+1. Sanal ortamda olduğunuzdan emin olun:
+   ```
+   venv\Scripts\activate
+   ```
+2. Kütüphaneleri tekrar yükleyin:
+   ```
+   python -m pip install --upgrade pip setuptools wheel
+   pip install -r requirements.txt
+   ```
+
+### "Microsoft Visual C++ 14.0 or greater is required" Hatası
+1. Visual Studio Build Tools'u indirin:
+   - https://visualstudio.microsoft.com/visual-cpp-build-tools/
+2. İndirilen dosyayı çalıştırın
+3. "Desktop development with C++" seçeneğini işaretleyin
+4. Kurulumu tamamlayın
+5. Bilgisayarı yeniden başlatın
+
+### Diğer Hatalar İçin
+1. Python sürümünüzü kontrol edin:
+   ```
+   python --version
+   ```
+2. Tüm dosyaların klasörde olduğunu kontrol edin:
+   ```
+   dir
+   ```
+   Şu dosyaları görmelisiniz:
+   - book_recommender.py
+   - gui.py
+   - scrape_books.py
+   - books_database.json
+   - requirements.txt
+
+## Not
+- İlk çalıştırmada yapay zeka modelleri indirilecektir
+- İnternet bağlantınızın olması gerekir
+- İlk açılış yavaş olabilir
+- Windows Defender veya antivirüs programı uyarı verebilir, izin vermeniz gerekir 
